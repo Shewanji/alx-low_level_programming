@@ -7,9 +7,8 @@
  * @age: age of the dog
  * @owner: owner of the dog
  *
- * Description: no description for this struct
+ * Description: this struct represents the basic info of the dog
  */
-
 struct dog
 {
 	char *name;
@@ -20,7 +19,6 @@ struct dog
 /**
  * dog_t - typedef for struct dog
  */
-
 typedef struct dog dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
@@ -31,3 +29,4 @@ char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 
 #endif
+
