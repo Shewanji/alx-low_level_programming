@@ -1,0 +1,19 @@
+# Compiler to be used
+CC := gcc
+
+# .c source files
+SRC := main.c school.c
+
+# Name of the executable
+EXECUTABLE := school
+
+# Build the executable
+all: $(EXECUTABLE)
+
+# Compilation command
+$(EXECUTABLE): $(SRC)
+	$(CC) $(SRC) -o $(EXECUTABLE)
+
+# Clean to remove generated files
+clean:
+	rm -f $(EXECUTABLE)
