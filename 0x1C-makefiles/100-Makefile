@@ -1,0 +1,39 @@
+# Compiler and compiler flags
+CC := gcc
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# List of .c source files
+SRC := main.c school.c
+
+# Name of the executable
+NAME := school
+
+# Convert .c source files to .o object files
+OBJ := $(SRC:.c=.o)
+
+# Rule to build the executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Individual source file rules
+main.o: main.c m.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
+
+school.o: school.c m.h
+	$(CC) $(CFLAGS) -c school.c -o school.o
+
+# Rule to clean temporary files and the executable
+clean:
+	$(RM) $(OBJ) $(NAME) *~ \#*\#
+
+# Rule to clean object files
+oclean:
+	$(RM) $(OBJ)
+
+# Rule to clean all temporary files, executable, and object files
+fclean: clean oclean
+
+# Rule to force recompilation of all source files
+re: fclean all
+
+.PHONY: all clean oclean fclean re
